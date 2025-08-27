@@ -49,20 +49,30 @@ public class OrdersController(StoreContext context) : BaseApiController
 
        var deliveryFee = CalculateDeliveryFee(subtotal);
 
-        var order = new Order
-        {
-            BuyerEmail = User.GetUserName(),
-            OrderItems = items,
-            ShippingAddress = createOrderDto.ShippingAddress,
-            Subtotal = subtotal,
-            DeliveryFee = deliveryFee,
-            PaymentSummary = createOrderDto.PaymentSummary,
-            PaymentIntentId = basket.PaymentIntentId
-        };
+       var order = await context.Orders
+            .Include(o => o.OrderItems)
+            .FirstOrDefaultAsync(o => o.PaymentIntentId == basket.PaymentIntentId);
 
-        context.Orders.Add(order);
-        context.Baskets.Remove(basket);
-        Response.Cookies.Delete("basketId");
+        if (order == null)
+        {
+            order = new Order
+            {
+                BuyerEmail = User.GetUserName(),
+                OrderItems = items,
+                ShippingAddress = createOrderDto.ShippingAddress,
+                Subtotal = subtotal,
+                DeliveryFee = deliveryFee,
+                PaymentSummary = createOrderDto.PaymentSummary,
+                PaymentIntentId = basket.PaymentIntentId
+            };
+
+            context.Orders.Add(order);
+        }
+        else
+        {
+            order.OrderItems = items;
+        }
+
         var result = await context.SaveChangesAsync() > 0;
 
         if(!result) return BadRequest(new ProblemDetails{Title = "Problem creating order"});
