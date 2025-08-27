@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -9,9 +10,9 @@ public class PaymentSummary
 {
     public int Last4 { get; set; }
     public required string Brand { get; set; }
-    [JsonProperty("exp_month")]
+    [JsonPropertyName("exp_month")]
     public int ExpMonth { get; set; }
 
-    [JsonProperty("exp_year")]
+    [JsonPropertyName("exp_year")]
     public int ExpYear { get; set; }
 }
