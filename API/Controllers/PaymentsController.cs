@@ -115,7 +115,7 @@ public class PaymentsController(PaymentService paymentService, StoreContext cont
         try
         {
             return EventUtility.ConstructEvent(json,
-                Request.Headers["Stripe-Signature"], config["StripeSettings:WhSecret"]);
+                Request.Headers["Stripe-Signature"], Environment.GetEnvironmentVariable("STRIPE_WH_SECRET"));
         }
         catch (Exception ex)
         {
