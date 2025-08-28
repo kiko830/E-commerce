@@ -11,7 +11,7 @@ using Stripe;
 
 namespace API.Controllers;
 
-public class PaymentsController(PaymentService paymentService, StoreContext context, IConfiguration config, ILogger<PaymentsController> logger) : BaseApiController
+public class PaymentsController(PaymentService paymentService, StoreContext context, ILogger<PaymentsController> logger) : BaseApiController
 {
     [Authorize]
     [HttpPost]
