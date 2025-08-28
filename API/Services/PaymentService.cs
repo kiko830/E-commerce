@@ -14,11 +14,6 @@ public class PaymentService
 
         if (string.IsNullOrEmpty(apiKey))
         {
-            apiKey = config["StripeSettings:SecretKey"];
-        }
-
-        if (string.IsNullOrEmpty(apiKey))
-        {
             throw new InvalidOperationException("Stripe API Key is missing.");
         }
 

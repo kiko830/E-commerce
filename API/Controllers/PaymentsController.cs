@@ -112,10 +112,16 @@ public class PaymentsController(PaymentService paymentService, StoreContext cont
     }
     private Event ConstructStripeEvent(string json)
     {
+        var secret = Environment.GetEnvironmentVariable("STRIPE_WH_SECRET");
+        if (string.IsNullOrEmpty(secret))
+        {
+            logger.LogError("Stripe webhook secret not found in environment variables.");
+            throw new Exception("Missing Stripe webhook secret");
+        }
         try
         {
             return EventUtility.ConstructEvent(json,
-                Request.Headers["Stripe-Signature"], config["StripeSettings:WhSecret"]);
+                Request.Headers["Stripe-Signature"], secret);
         }
         catch (Exception ex)
         {
