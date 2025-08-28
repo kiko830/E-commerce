@@ -27,7 +27,7 @@ jobs:
         run: |
           cd client
           npm install
-          VITE_API_URL=https://restore-try.azurewebsites.net/api npm run build
+          npm run build
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4

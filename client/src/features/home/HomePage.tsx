@@ -2,7 +2,6 @@ import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function HomePage() {
-  console.log(import.meta.env.VITE_API_URL + '/products');
   return (
     <Box maxWidth={'xl'} mx={'auto'} px={4} position={'relative'}>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} position={'relative'}>
