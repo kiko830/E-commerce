@@ -28,7 +28,7 @@ jobs:
           cd client
           npm install
           VITE_API_URL=https://restore-try.azurewebsites.net/api \
-          VITE_STRIPE_PUBLIC_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }} \
+          VITE_STRIPE_PUBLIC_KEY=${{ secrets.VITE_STRIPE_PUBLIC_KEY }} \
           npm run build
 
       - name: Set up .NET Core
