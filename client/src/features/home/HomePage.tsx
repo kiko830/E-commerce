@@ -9,7 +9,7 @@ export default function HomePage() {
           style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'16px', zIndex:0}}/>
         <Box display={'flex'} flexDirection={'column'} p={8} alignItems={'center'} position={'relative'} borderRadius={4}>
           <Typography variant="h1" color="white" fontWeight={'bold'} textAlign={'center'} sx={{my:3}}>
-            Welcome to Restore
+            Welcome to FusionMart
             </Typography>
           <Button variant="contained"
             size="large"

@@ -144,6 +144,7 @@ export default function CheckoutStepper() {
                 />
             </Box>
             <Box sx={{display: activeStep === 1? 'block' : 'none'}}>
+                <Typography sx={{backgroundColor:'yellowgreen', mb:2}}>Use fake card with any expiry date and CVC: 4242 4242 4242 4242</Typography>
                 <PaymentElement 
                     onChange={handlePaymentChange}
                     options={{
@@ -151,7 +152,8 @@ export default function CheckoutStepper() {
                             applePay:'never',
                             googlePay:'never'
                         }
-                    }}/>
+                    }}
+                    />
             </Box>
             <Box sx={{display: activeStep === 2? 'block' : 'none'}}>
                 <Review confirmationToken={confirmationToken} />

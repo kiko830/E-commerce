@@ -28,7 +28,7 @@ function App() {
       <ScrollRestoration />
       <CssBaseline />
       <NavBar />
-      <Box sx={{minHeight: '100vh', background: darkMode? 'radial-gradient(circle, #1e3aBa, #111B27)': 'radial-gradient(circle, #baecf9, #f0f9ff)', py:6}}>
+      <Box sx={{minHeight: '100vh', background: darkMode? '#121212': '#F5F5F5', py:6}}>
         <Container maxWidth='xl' sx={{mt:8}}>
      
           <Outlet />

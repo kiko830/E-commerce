@@ -19,8 +19,8 @@ const midLinks = [
 
 ]
 
-const navStyles = {color: 'inherit', typography: 'h6', textDecoration:'none', 
-                        '&:hover': {color: 'grey.500'}, '&.active': {color:'#baecf9'}}
+const navStyles = { typography: 'h6', textDecoration:'none', 
+                        '&:hover': {color: 'grey.500'}, '&.active': {color:'#f140ddff'}}
 
 
 export default function NavBar() {
@@ -31,12 +31,12 @@ export default function NavBar() {
 
   const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0) || 0;
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed"  color="#FFFFFF"  >
         <Toolbar sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <Box display='flex' alignItems='center' >
-                <Typography component={NavLink} to='/' sx={navStyles} variant="h6">RE-STORE</Typography>
+                <Typography component={NavLink} to='/' sx={navStyles} variant="h6" color={darkMode? '#FFFFFF' : 'black'}>FusionMart</Typography>
                  <IconButton onClick={() => dispatch(setDarkMode())}>
-                    {darkMode? <DarkMode /> : <LightMode sx={{color: 'yellow'}}/>}
+                    {darkMode? <DarkMode /> : <LightMode sx={{color: 'red'}}/>}
                 </IconButton>
             </Box>
 
@@ -45,7 +45,7 @@ export default function NavBar() {
             {midLinks.map(({title,path}) => (
                 <ListItem 
                     component={NavLink} to={path} key={path} 
-                    sx={navStyles}
+                    sx={{...navStyles, color: darkMode ? '#FFFFFF' : 'black'}}  
                 >
                         {title.toUpperCase()}
                 </ListItem>

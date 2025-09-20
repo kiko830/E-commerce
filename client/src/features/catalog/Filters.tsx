@@ -36,20 +36,22 @@ export default function Filters({filtersData:data}: Props) {
                 onChange={e => dispatch(setOrderBy(e.target.value))}
             />
         </Paper>
-        <Paper sx={{p:3}}>
-            <CheckboxButtons
-                items={data.brands}
-                checked={brands}
-                onChange={(items:string[]) => dispatch(setBrands(items))}
-            />
-        </Paper>
-        <Paper sx={{p:3}}>
+
+          <Paper sx={{p:3}}>
             <CheckboxButtons
                 items={data.types}
                 checked={types}
                 onChange={(items:string[]) => dispatch(setTypes(items))}
             />
         </Paper>
+        {/* <Paper sx={{p:3}}>
+            <CheckboxButtons
+                items={data.brands}
+                checked={brands}
+                onChange={(items:string[]) => dispatch(setBrands(items))}
+            />
+        </Paper> */}
+      
 
         <Button onClick={()=> dispatch(resetParams())}>Reset Filters</Button>
     </Box>

@@ -13,7 +13,7 @@ export default function ProductCard({product} : Props) {
   return (
     <Card elevation={3}
             sx={{width: 280, borderRadius:2, display: 'flex',flexDirection:"column", justifyContent:'space-between'}}>
-        <CardMedia sx={{height:240, backgroundSize: 'cover'}} 
+        <CardMedia component="img" sx={{height:240,px:1,objectFit: 'contain'}} 
             image={product.pictureUrl}
             title = {product.name}/>
         <CardContent>
