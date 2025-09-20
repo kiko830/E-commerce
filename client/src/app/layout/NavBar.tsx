@@ -54,7 +54,7 @@ export default function NavBar() {
             </Box>
             
             <Box display='flex' alignItems='center' >
-                 <IconButton component={Link} to='/basket' size="large" color="inherit">
+                 <IconButton component={Link} to='/basket' size="large"  sx={{color: darkMode ? '#FFFFFF' : 'black'}}>
                 <Badge badgeContent={itemCount} color="secondary">
                     <ShoppingCart />
                 </Badge>

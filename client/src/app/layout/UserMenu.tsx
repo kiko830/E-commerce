@@ -4,6 +4,7 @@ import type { User } from "../models/User";
 import { History, Logout, Person } from "@mui/icons-material";
 import { useLogoutMutation } from "../../features/account/accountApi";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../store/store";
 
 type Props = {
     user: User
@@ -11,6 +12,7 @@ type Props = {
 export default function UserMenu({ user }: Props) {
     const [logout] = useLogoutMutation();
    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const {darkMode} = useAppSelector(state => state.ui);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -23,9 +25,9 @@ export default function UserMenu({ user }: Props) {
     <div>
       <Button
         onClick={handleClick}
-        color="inherit"
+       
         size="large"
-        sx={{fontSize:'1.1rem'}}
+        sx={{fontSize:'1.1rem', color: darkMode ? '#FFFFFF' : 'black'}}
       >
         {user.email}
       </Button>
