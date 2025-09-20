@@ -31,7 +31,7 @@ export default function NavBar() {
 
   const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0) || 0;
   return (
-    <AppBar position="fixed"  color="#FFFFFF"  >
+    <AppBar position="fixed"  sx={{backgroundColor: darkMode ? '#000000' : '#FFFFFF'}} >
         <Toolbar sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <Box display='flex' alignItems='center' >
                 <Typography component={NavLink} to='/' sx={navStyles} variant="h6" color={darkMode? '#FFFFFF' : 'black'}>FusionMart</Typography>

@@ -1,4 +1,4 @@
-import { EmailOutlined, GitHub, LinkedIn, Phone } from "@mui/icons-material";
+import { EmailOutlined, GitHub, LinkedIn } from "@mui/icons-material";
 import { Box, Tooltip, Typography } from "@mui/material";
 
 export default function ContactPage() {
