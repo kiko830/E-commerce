@@ -7,7 +7,7 @@ export default function ContactPage() {
 
     email?.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText(email.textContent);
+        await navigator.clipboard.writeText(email.textContent ?? "");
         tooltip!.style.display = 'block';
         setTimeout(() => {
           tooltip!.style.opacity = '1';
